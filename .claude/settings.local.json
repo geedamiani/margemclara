@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx next build)",
+      "Bash(npx playwright install chromium)",
+      "Bash(npx playwright screenshot --viewport-size=\"1440,900\" --wait-for-timeout=3000 http://localhost:3000/painel public/screenshot-dashboard.png)",
+      "Bash(npx playwright screenshot --viewport-size=\"1440,900\" --wait-for-timeout=3000 http://localhost:3000/clientes public/screenshot-clientes.png)",
+      "Bash(npx playwright screenshot --viewport-size=\"1440,900\" --wait-for-timeout=3000 http://localhost:3000/simulacao public/screenshot-simulacao.png)",
+      "Bash(ls -la /Users/guidamiani/Desktop/Projects/margemclara/public/screenshot-*.png)",
+      "Bash(npx --yes vercel --version)",
+      "Bash(git init)",
+      "Bash(git add -A)"
+    ]
+  }
+}
