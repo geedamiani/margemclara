@@ -33,7 +33,7 @@ npm run dev
 
 The app runs at `http://localhost:3000`.
 
-The landing page and calculator work without Supabase — lead submissions log to the console in dev mode.
+The landing page and calculator render without Supabase. A lead is saved only when the insert into `leads` succeeds. If `NEXT_PUBLIC_SUPABASE_URL` or `NEXT_PUBLIC_SUPABASE_ANON_KEY` is missing, or the insert fails, the form shows an error instead of a success message.
 
 ## Environment variables
 
@@ -66,9 +66,14 @@ create table leads (
 -- Enable Row Level Security
 alter table leads enable row level security;
 
--- Allow anonymous inserts (for the public lead form)
+-- Anonymous visitors may insert a lead. No select, update, or delete.
+revoke all on table leads from public, anon;
+grant insert on table leads to anon;
+
 create policy "Allow anonymous inserts"
-  on leads for insert
+  on leads
+  for insert
+  to anon
   with check (true);
 ```
 
